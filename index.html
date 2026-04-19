@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Alain AI Analytics</title>
+<title>Alain AI Predictor</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 
@@ -70,22 +70,12 @@ background:rgba(255,255,255,0.05);
 border:1px solid rgba(255,255,255,0.07);
 }
 
-.card{
-margin-top:14px;
-padding:14px;
-background:rgba(255,255,255,0.03);
-border:1px solid rgba(255,255,255,0.06);
-border-radius:14px;
-}
-
 .section-title{
 font-size:14px;
 font-weight:800;
-margin-bottom:8px;
-color:#cfe0ff;
+margin:14px 0 8px;
 }
 
-/* games */
 .games{
 display:grid;
 grid-template-columns:1fr 1fr;
@@ -101,18 +91,18 @@ cursor:pointer;
 display:flex;
 gap:10px;
 align-items:center;
-transition:.2s;
 font-weight:700;
+transition:.2s;
 }
 
 .icon{
 width:34px;
 height:34px;
+border-radius:10px;
 display:flex;
 align-items:center;
 justify-content:center;
 background:rgba(255,255,255,0.06);
-border-radius:10px;
 }
 
 .game.active{
@@ -121,23 +111,6 @@ box-shadow:0 0 12px rgba(31,211,138,0.35);
 transform:scale(1.02);
 }
 
-.popular{
-position:absolute;
-font-size:10px;
-background:linear-gradient(90deg,var(--orange),var(--green));
-color:black;
-padding:3px 6px;
-border-radius:999px;
-font-weight:900;
-top:6px;
-left:6px;
-}
-
-.game-wrap{
-position:relative;
-}
-
-/* input */
 .input{
 width:100%;
 padding:12px;
@@ -145,8 +118,8 @@ border-radius:12px;
 border:none;
 background:var(--card);
 color:#fff;
-outline:none;
 margin-top:6px;
+outline:none;
 }
 
 .btn{
@@ -162,6 +135,34 @@ cursor:pointer;
 }
 
 .btn:disabled{opacity:.5}
+
+/* TELEGRAM BUTTON */
+.telegram{
+width:100%;
+margin-top:10px;
+display:block;
+text-align:center;
+padding:12px;
+border-radius:12px;
+background:#229ED9;
+color:#fff;
+font-weight:800;
+text-decoration:none;
+transition:.2s;
+}
+
+.telegram:hover{
+transform:scale(1.02);
+}
+
+/* loader */
+.loader{
+display:none;
+margin-top:12px;
+text-align:center;
+font-size:13px;
+color:var(--muted);
+}
 
 /* popup */
 .popup{
@@ -195,7 +196,7 @@ padding:10px;
 border:none;
 border-radius:10px;
 background:var(--green);
-color:black;
+color:#000;
 font-weight:800;
 cursor:pointer;
 }
@@ -208,14 +209,6 @@ font-size:12px;
 color:var(--muted);
 }
 
-#online{color:var(--green)}
-
-.footer{
-text-align:center;
-margin-top:10px;
-font-size:11px;
-color:var(--muted);
-}
 </style>
 </head>
 
@@ -223,64 +216,42 @@ color:var(--muted);
 
 <div class="container">
 
-<div class="logo">Alain AI Analytics</div>
+<div class="logo">Alain AI Predictor</div>
 <div class="subtitle">Plateforme d’analyse intelligente • Kinshasa</div>
 
 <div class="badges">
 <div class="badge">🔒 Sécurisé</div>
-<div class="badge">📊 AI Analysis</div>
-<div class="badge">⚡ Temps réel</div>
+<div class="badge">📊 AI System</div>
+<div class="badge">⚡ Real-time</div>
 <div class="badge">🇨🇩 RDC</div>
 </div>
 
-<div class="card">
 <div class="section-title">Sélectionner un jeu</div>
 
 <div class="games">
 
-<div class="game active game-wrap">
-<div class="icon">✈️</div>
-Aviator
-<div class="popular">Populaire</div>
-</div>
-
-<div class="game game-wrap">
-<div class="icon">💣</div>
-Mines
-</div>
-
-<div class="game game-wrap">
-<div class="icon">🚀</div>
-Crash
-</div>
-
-<div class="game game-wrap">
-<div class="icon">⚽</div>
-Penalty
-</div>
-
-<div class="game game-wrap">
-<div class="icon">🐔</div>
-Chicken Road
-</div>
+<div class="game active"><div class="icon">✈️</div>Aviator</div>
+<div class="game"><div class="icon">💣</div>Mines</div>
+<div class="game"><div class="icon">🚀</div>Crash</div>
+<div class="game"><div class="icon">⚽</div>Penalty</div>
+<div class="game"><div class="icon">🐔</div>Chicken Road</div>
 
 </div>
 
-<div class="section-title">Numéro de compte</div>
+<div class="section-title">Numéro de compte LineBet</div>
 <input class="input" id="acc" maxlength="10" placeholder="Entrer 10 chiffres">
 
 <button class="btn" id="btn" disabled>Lancer l’analyse IA</button>
-<div id="loader" style="display:none;margin-top:12px;color:#93a4b8;font-size:13px;text-align:center;">
-Analyse en cours...
-</div>
+
+<a class="telegram" href="https://t.me/AlainSupport_bot" target="_blank">
+📩 Telegram Support
+</a>
+
+<div class="loader" id="loader">Analyse en cours...</div>
 
 <div class="meta">
 <div>⏳ 05:00</div>
-<div>🟢 Online <span id="online">120</span></div>
-</div>
-
-<div class="footer">
-Système d’analyse IA • Alain Tech
+<div>🟢 Live</div>
 </div>
 
 </div>
@@ -288,26 +259,25 @@ Système d’analyse IA • Alain Tech
 <!-- POPUP -->
 <div class="popup" id="popup">
 <div class="popup-box">
-<div class="popup-title">❌ Aucun dépôt détecté</div>
-<div>Un dépôt de 10 000 CDF est requis pour continuer l’analyse.</div>
+<div class="popup-title">Analyse terminée</div>
+<div>Les résultats sont prêts.</div>
 <button class="popup-btn" onclick="closePopup()">Réessayer</button>
 </div>
 </div>
 
 <script>
 
-const games=document.querySelectorAll(".game");
-
-games.forEach(g=>{
-g.addEventListener("click",()=>{
-games.forEach(x=>x.classList.remove("active"));
-g.classList.add("active");
-});
-});
-
 const acc=document.getElementById("acc");
 const btn=document.getElementById("btn");
+const loader=document.getElementById("loader");
 const popup=document.getElementById("popup");
+
+const steps=[
+"Analyse des données...",
+"Connexion au serveur IA...",
+"Traitement des modèles...",
+"Génération des résultats..."
+];
 
 acc.addEventListener("input",()=>{
 acc.value=acc.value.replace(/\D/g,'');
@@ -315,19 +285,35 @@ btn.disabled=acc.value.length!==10;
 });
 
 btn.addEventListener("click",()=>{
+
+loader.style.display="block";
+btn.disabled=true;
+
+let i=0;
+
+let interval=setInterval(()=>{
+
+loader.textContent=steps[i];
+i++;
+
+if(i>=steps.length){
+clearInterval(interval);
+
 setTimeout(()=>{
+loader.style.display="none";
 popup.style.display="flex";
-},1200);
+btn.disabled=false;
+},700);
+
+}
+
+},700);
+
 });
 
 function closePopup(){
 popup.style.display="none";
 }
-
-setInterval(()=>{
-document.getElementById("online").textContent =
-120 + Math.floor(Math.random()*10-4);
-},2000);
 
 </script>
 
