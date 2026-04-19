@@ -230,11 +230,25 @@ color:var(--muted);
 
 <div class="games">
 
-<div class="game active"><div class="icon">✈️</div>Aviator</div>
-<div class="game"><div class="icon">💣</div>Mines</div>
-<div class="game"><div class="icon">🚀</div>Crash</div>
-<div class="game"><div class="icon">⚽</div>Penalty</div>
-<div class="game"><div class="icon">🐔</div>Chicken Road</div>
+<div class="game active" data-game="aviator">
+<div class="icon">✈️</div> Aviator
+</div>
+
+<div class="game" data-game="mines">
+<div class="icon">💣</div> Mines
+</div>
+
+<div class="game" data-game="crash">
+<div class="icon">🚀</div> Crash
+</div>
+
+<div class="game" data-game="penalty">
+<div class="icon">⚽</div> Penalty
+</div>
+
+<div class="game" data-game="chicken">
+<div class="icon">🐔</div> Chicken Road
+</div>
 
 </div>
 
@@ -314,6 +328,17 @@ btn.disabled=false;
 function closePopup(){
 popup.style.display="none";
 }
+
+const games = document.querySelectorAll(".game");
+
+games.forEach(game => {
+game.addEventListener("click", () => {
+
+games.forEach(g => g.classList.remove("active"));
+game.classList.add("active");
+
+});
+});
 
 </script>
 
